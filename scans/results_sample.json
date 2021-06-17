@@ -1,0 +1,269 @@
+{
+    "results": {
+        "M1": [
+            {
+                "vulnerability": "Small description of the vulnerability",
+                "details": "Some more detailed explanation about the vulnerability, if available",
+                "severity": "A severity level of the vulnerability",
+                "detectedby": [
+                    "Androbugs",
+                    "Any other scanner"
+                ],
+                "feedback": [
+                    {
+                        "url": "some url to a web page"
+                    },
+                    {
+                        "video": "video location"
+                    },
+                    {
+                        "book": "book location"
+                    },
+                    {
+                        "other": "other location"
+                    }
+                ]
+            }
+        ],
+        "M2": [
+            {
+                "vulnerability": "Small description of the vulnerability",
+                "details": "Some more detailed explanation about the vulnerability, if available",
+                "severity": "A severity level of the vulnerability",
+                "detectedby": [
+                    "Androbugs",
+                    "Any other scanner"
+                ],
+                "feedback": [
+                    {
+                        "url": "some url to a web page"
+                    },
+                    {
+                        "video": "video location"
+                    },
+                    {
+                        "book": "book location"
+                    },
+                    {
+                        "other": "other location"
+                    }
+                ]
+            }
+        ],
+        "M3": [
+            {
+                "vulnerability": "Small description of the vulnerability",
+                "details": "Some more detailed explanation about the vulnerability, if available",
+                "severity": "A severity level of the vulnerability",
+                "detectedby": [
+                    "Androbugs",
+                    "Any other scanner"
+                ],
+                "feedback": [
+                    {
+                        "url": "some url to a web page"
+                    },
+                    {
+                        "video": "video location"
+                    },
+                    {
+                        "book": "book location"
+                    },
+                    {
+                        "other": "other location"
+                    }
+                ]
+            }
+        ],
+        "M4": [
+            {
+                "vulnerability": "Small description of the vulnerability",
+                "details": "Some more detailed explanation about the vulnerability, if available",
+                "severity": "A severity level of the vulnerability",
+                "detectedby": [
+                    "Androbugs",
+                    "Any other scanner"
+                ],
+                "feedback": [
+                    {
+                        "url": "some url to a web page"
+                    },
+                    {
+                        "video": "video location"
+                    },
+                    {
+                        "book": "book location"
+                    },
+                    {
+                        "other": "other location"
+                    }
+                ]
+            }
+        ],
+        "M5": [
+            {
+                "vulnerability": "Small description of the vulnerability",
+                "details": "Some more detailed explanation about the vulnerability, if available",
+                "severity": "A severity level of the vulnerability",
+                "detectedby": [
+                    "Androbugs",
+                    "Any other scanner"
+                ],
+                "feedback": [
+                    {
+                        "url": "some url to a web page"
+                    },
+                    {
+                        "video": "video location"
+                    },
+                    {
+                        "book": "book location"
+                    },
+                    {
+                        "other": "other location"
+                    }
+                ]
+            }
+        ],
+        "M6": [
+            {
+                "vulnerability": "Small description of the vulnerability",
+                "details": "Some more detailed explanation about the vulnerability, if available",
+                "severity": "A severity level of the vulnerability",
+                "detectedby": [
+                    "Androbugs",
+                    "Any other scanner"
+                ],
+                "feedback": [
+                    {
+                        "url": "some url to a web page"
+                    },
+                    {
+                        "video": "video location"
+                    },
+                    {
+                        "book": "book location"
+                    },
+                    {
+                        "other": "other location"
+                    }
+                ]
+            }
+        ],
+        "M7": [
+            {
+                "vulnerability": "Small description of the vulnerability",
+                "details": "Some more detailed explanation about the vulnerability, if available",
+                "severity": "A severity level of the vulnerability",
+                "detectedby": [
+                    "Androbugs",
+                    "Any other scanner"
+                ],
+                "feedback": [
+                    {
+                        "url": "some url to a web page"
+                    },
+                    {
+                        "video": "video location"
+                    },
+                    {
+                        "book": "book location"
+                    },
+                    {
+                        "other": "other location"
+                    }
+                ]
+            }
+        ],
+        "M8": [
+            {
+                "vulnerability": "Small description of the vulnerability",
+                "vulnerability_details": "Some more detailed explanation about the vulnerability, if available",
+                "severity": "A severity level of the vulnerability",
+                "detectedby": [
+                    "Androbugs",
+                    "Any other scanner"
+                ],
+                "feedback": [
+                    {
+                        "url": "some url to a web page"
+                    },
+                    {
+                        "video": "video location"
+                    },
+                    {
+                        "book": "book location"
+                    },
+                    {
+                        "other": "other location"
+                    }
+                ]
+            }
+        ],
+        "M9": [
+            {
+                "vulnerability": "Small description of the vulnerability",
+                "vulnerability_details": "Some more detailed explanation about the vulnerability, if available",
+                "severity": "A severity level of the vulnerability",
+                "detectedby": [
+                    "Androbugs",
+                    "Any other scanner"
+                ],
+                "feedback": [
+                    {
+                        "url": "some url to a web page"
+                    },
+                    {
+                        "video": "video location"
+                    },
+                    {
+                        "book": "book location"
+                    },
+                    {
+                        "other": "other location"
+                    }
+                ]
+            }
+        ],
+        "M10": [
+            {
+                "vulnerability": "Small description of the vulnerability",
+                "vulnerability_details": "Some more detailed explanation about the vulnerability, if available",
+                "severity": "A severity level of the vulnerability",
+                "detectedby": [
+                    "Androbugs",
+                    "Any other scanner"
+                ],
+                "feedback": [
+                    {
+                        "url": "some url to a web page"
+                    },
+                    {
+                        "video": "video location"
+                    },
+                    {
+                        "book": "book location"
+                    },
+                    {
+                        "other": "other location"
+                    }
+                ]
+            }
+        ]
+    },
+    "results_history": [
+        {
+            "created_at": "Thu, 02 May 2019 15:46:33 GMT",
+            "details": "NOT YET IN THE FINAL FORMAT",
+            "id": 13,
+            "md5": "e0bd451c455d1b8f67dab9684b663154",
+            "results_location": "./json_results/Androbugs/e0bd451c455d1b8f67dab9684b663154.json",
+            "scantools": [
+                "Androbugs",
+                "Droidstatx"
+            ],
+            "status": 0
+        }
+    ],
+    "status": true
+}
