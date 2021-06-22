@@ -1,8 +1,9 @@
+from copy import Error
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from django.core import serializers
 from knox.models import AuthToken
-from .serializers import NewScanSerializer, ScanSerializer
+from .serializers import NewScanSerializer, ScanSerializer, ScanResultsSerializer
 from .models import Scan, NewScan
 from accounts.models import MyUser
 import json
@@ -60,8 +61,9 @@ class ScanListApi(generics.ListAPIView):
 
     def get_queryset(self, *args, **kwargs):
         queryset = Scan.objects.filter(user_id=self.request.user.id)
-        query = self.request.GET.get("q")
-
+        query = self.request.GET.getlist('')
+        print(self.request)
+        print(queryset)
         if query:
             queryset = queryset.filter(
                 Q(name__icontains=query) |
@@ -69,3 +71,30 @@ class ScanListApi(generics.ListAPIView):
             ).distinct()
 
         return queryset
+
+class ScanResultsApi(generics.ListAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
+
+    serializer_class = ScanResultsSerializer
+
+    def get_queryset(self, *args, **kwargs):
+        if self.request.method == 'GET':
+            query = self.request.GET.get('scan_id','')
+            print(kwargs)
+            print(query)
+            queryset = ''
+            if query == '':
+                print(Error)
+            else:
+                queryset = Scan.objects.filter(user_id=self.request.user.id, id=query).distinct()
+            print('Query set:')
+            print(queryset)
+            # if query:
+            #     queryset = queryset.filter(
+            #         Q(name__icontains=query) |
+            #         Q(description__icontains=query)
+            #     ).distinct()
+
+            return queryset
