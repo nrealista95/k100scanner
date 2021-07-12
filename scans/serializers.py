@@ -1,4 +1,4 @@
-from .models import Scan, NewScan
+from .models import Scan
 from django.contrib.auth import authenticate
 from rest_framework import serializers
 
@@ -11,8 +11,13 @@ class ScanResultsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Scan
         fields = ('app_name','results')
-        
-class NewScanSerializer(serializers.ModelSerializer):
+
+class UpdateResultsStatusSerializer(serializers.ModelSerializer):
     class Meta:
-        model = NewScan
-        fields = ('tool_selected', 'user', 'apk_file')
+        model = Scan
+        fields = ('app_name','results')
+       
+# class NewScanSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Scan
+#         fields = ('tools_selected', 'apk_file')

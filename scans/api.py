@@ -1,12 +1,13 @@
 from copy import Error
+from django.core.files.base import File
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from django.core import serializers
-from knox.models import AuthToken
-from .serializers import NewScanSerializer, ScanSerializer, ScanResultsSerializer
-from .models import Scan, NewScan
-from accounts.models import MyUser
+from django.core.files.storage import FileSystemStorage
+from .serializers import ScanSerializer, ScanResultsSerializer, UpdateResultsStatusSerializer
+from .models import Scan
 import json
+import os
 
 
 # POST NewScan
@@ -15,17 +16,20 @@ class NewScanApi(generics.GenericAPIView):
         permissions.IsAuthenticated
     ]
 
-    serializer_class = NewScanSerializer
+    serializer_class = ScanSerializer
 
     
     def post(self, request, fromat=None):
         # BIG TODO check if the current apk was already scaned
-        serializer = self.serializer_class(data=request.data)
-        if serializer.is_valid():
+        if self.request.method == 'POST':
+            tools_selected = self.request.data['data']
+            apk_file= self.request.FILES['apk_file']
+            fs = FileSystemStorage()
+            fs.save(apk_file.name,apk_file)
             # user_id=self.request.user
-            user_id = serializer.data.get('tool_selected')
-            tool_selected = serializer.data.get('tool_selected')
-            apk_file = serializer.data.get('apk_file')
+            # tools_selected = serializer.data.get('tools_selected')
+            # print(tools_selected)
+            # apk_file = serializer.data.get('apk_file')
 
             # TODO with the data provided start the scan
             #
@@ -72,6 +76,7 @@ class ScanListApi(generics.ListAPIView):
 
         return queryset
 
+# GET results of a scan 
 class ScanResultsApi(generics.ListAPIView):
     permission_classes = [
         permissions.IsAuthenticated
@@ -82,8 +87,6 @@ class ScanResultsApi(generics.ListAPIView):
     def get_queryset(self, *args, **kwargs):
         if self.request.method == 'GET':
             query = self.request.GET.get('scan_id','')
-            print(kwargs)
-            print(query)
             queryset = ''
             if query == '':
                 print(Error)
@@ -98,3 +101,29 @@ class ScanResultsApi(generics.ListAPIView):
             #     ).distinct()
 
             return queryset
+
+    # PUT Update "status" of results        
+    def put(self, *args, **kwargs):
+        if self.request.method == 'PUT':
+            serializer = self.serializer_class(data=self.request.data)
+            if serializer.is_valid():
+                query = self.request.GET.get('scan_id','')
+                queryset = Scan.objects.filter(user_id=self.request.user.id, id=query).update(results=serializer.data.get('results'))
+                return Response({'Update Success'}, status=status.HTTP_200_OK)
+            return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+# PUT Update "status" of results
+class UpdateResultsStatusAPI(generics.ListAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
+    serializer_class = UpdateResultsStatusSerializer
+
+    def put(self, *args, **kwargs):
+        print('I am here')
+        if self.request.method == 'PUT':
+            serializer = self.serializer_class(data=self.request.data)
+            query = self.request.GET.get('scan_id','')
+            body_unicode = self.request.body.decode('utf-8')
+            body = json.loads(body_unicode)
+            results_from_request = body['content']
+            queryset = Scan.objects.filter(user_id=self.request.user.id, id=query).update(results=results_from_request)

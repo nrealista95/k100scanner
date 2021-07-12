@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .api import NewScanApi, ScanListApi, ScanResultsApi
+from .api import NewScanApi, ScanListApi, ScanResultsApi, UpdateResultsStatusAPI
 # from knox import views as knox_views
 
 urlpatterns = [

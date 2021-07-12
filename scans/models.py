@@ -12,8 +12,3 @@ class Scan(models.Model):
     time = models.TimeField(auto_now=False, auto_now_add=False)   # Time during scan
     created_at = models.DateTimeField(auto_now_add=True)
     results = JSONField(default='{}')
-
-class NewScan(models.Model):
-    apk_file = models.FileField(null=True)
-    tool_selected = models.CharField(null=False, max_length=50)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
